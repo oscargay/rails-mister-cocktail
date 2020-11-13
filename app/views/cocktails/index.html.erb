@@ -1,5 +1,22 @@
-<h1>List of Cocktails</h1>
+<div class="p-1">
+  <h1>The Cocktail Council</h1>
 
-<% @cocktails.each do |cocktail| %>
-    <h3><%= cocktail.name %></h3>
-<% end %>
+  <div class="d-flex flex-wrap justify-content-center">
+  <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail_path(cocktail) do  %>
+      <div class="card-trip m-3">
+          <img src="https://source.unsplash.com/1600x900/?cocktail" />
+          <div class="card-trip-infos">
+            <div>
+                  <h2> <%= cocktail.name %> </h2>
+            </div>
+            <img src="https://source.unsplash.com/100x100/?face" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+    <% end %>
+   <% end %>
+  </div>
+</div>
+
+
+
