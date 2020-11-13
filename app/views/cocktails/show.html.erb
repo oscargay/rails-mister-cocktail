@@ -1,8 +1,11 @@
+<div class="border-bottom mt-3">
+  <h3>The Cocktail Council</h3>
+</div>
 <div class="row justify-content-around m-3">
   <div class="flex-grow-1">
     <div class="d-flex flex-wrap justify-content-center">
       <div class="card-trip m-3">
-          <img src="https://source.unsplash.com/1600x900/?cocktail" />
+          <%= cl_image_tag @cocktail.photo.key, crop: :fill %>
           <div class="card-trip-infos justify-content-center">
             <div>
               <h3><%= @cocktail.name %></h3>
@@ -21,3 +24,39 @@
       <h5><%= link_to "Add an Ingredient", new_cocktail_dose_path(@cocktail) %></h5>
   </div>
 </div>
+<div>
+  <br>
+</div>
+<div class ="border-bottom">
+  <h3>Featured Cocktails</h3>
+</div>
+<div class="row justify-content-center m-3">
+  <div id="carouselExampleIndicators" class="carousel slide w-50 border d-flex justify-content-center" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag @cocktails[0].photo.key, class: "d-block w-100 h-100", crop: :fill %>
+      </div>
+      <div class="carousel-item">
+        <%= cl_image_tag @cocktails[1].photo.key, class: "d-block w-100", crop: :fill %>
+      </div>
+      <div class="carousel-item">
+        <%= cl_image_tag @cocktails[2].photo.key, class: "d-block w-100", crop: :fill %>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+

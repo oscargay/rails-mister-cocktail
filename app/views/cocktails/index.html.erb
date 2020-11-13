@@ -1,22 +1,23 @@
 <div class="p-1">
   <h1>The Cocktail Council</h1>
 
-  <div class="d-flex flex-wrap justify-content-center">
+  <div class="d-flex flex-wrap justify-content-between">
   <% @cocktails.each do |cocktail| %>
     <%= link_to cocktail_path(cocktail) do  %>
       <div class="card-trip m-3">
-          <img src="https://source.unsplash.com/1600x900/?cocktail" />
+          <%= cl_image_tag cocktail.photo.key, crop: :fill %>
           <div class="card-trip-infos">
             <div>
                   <h2> <%= cocktail.name %> </h2>
             </div>
-            <img src="https://source.unsplash.com/100x100/?face" class="card-trip-user avatar-bordered" />
+            <!-- <img src="https://source.unsplash.com/100x100/?face" class="card-trip-user avatar-bordered" /> -->
           </div>
         </div>
     <% end %>
    <% end %>
   </div>
 </div>
+
 
 
 
